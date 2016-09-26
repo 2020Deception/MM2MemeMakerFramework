@@ -1,0 +1,6 @@
+framework module MM2MemeMakerFramework {
+  umbrella header "MM2MemeMakerFramework.h"
+
+  export *
+  module * { export * }
+}
