@@ -6,7 +6,7 @@
 //  Copyright © 2016 2020Deception. All rights reserved.
 //
 
-#import "STPopupController.h"
+#import <STPopup/STPopupController.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

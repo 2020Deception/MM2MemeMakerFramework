@@ -1,5 +1,4 @@
 //
-//  MM2SelectionCollectionViewLayout.h
 //
 //  Created by Brian Sharrief Alim Bowman on 8/24/16.
 //  Copyright © 2016 Brian Sharrief Alim Bowman. All rights reserved.

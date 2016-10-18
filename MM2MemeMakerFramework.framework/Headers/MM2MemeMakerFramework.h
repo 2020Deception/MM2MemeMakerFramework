@@ -21,13 +21,20 @@ FOUNDATION_EXPORT const unsigned char MM2MemeMakerFrameworkVersionString[];
 
 #import <MM2MemeMakerFramework/BaseCollectionViewController.h>
 #import <MM2MemeMakerFramework/MM2AlertViewController.h>
+#import <MM2MemeMakerFramework/MM2AlertContentViewController.h>
 #import <MM2MemeMakerFramework/MM2SelectionCollectionViewController.h>
+#import <MM2MemeMakerFramework/MM2InstagramImageSelectionViewController.h>
 #import <MM2MemeMakerFramework/MM2SelectionCollectionViewCell.h>
 #import <MM2MemeMakerFramework/MM2SelectionCollectionViewLayout.h>
-#import <MM2MemeMakerFramework/MM2HeaderCollectionReusableView.h>
 
-#import <MM2MemeMakerFramework/STPopup.h>
-#import <MM2MemeMakerFramework/STPopupControllerTransitioningFade.h>
-#import <MM2MemeMakerFramework/STPopupControllerTransitioningSlideVertical.h>
-#import <MM2MemeMakerFramework/STPopupLeftBarItem.h>
-#import <MM2MemeMakerFramework/UIResponder+STPopup.h>
+#import <STPopUp/STPopup.h>
+#import <STPopUp/UIViewController+STPopup.h>
+#import <STPopUp/STPopupController.h>
+#import <STPopUp/STPopupNavigationBar.h>
+#import <STPopUp/STPopupControllerTransitioningFade.h>
+#import <STPopUp/STPopupControllerTransitioningSlideVertical.h>
+#import <STPopUp/STPopupLeftBarItem.h>
+#import <STPopUp/UIResponder+STPopup.h>
+
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <D2LayoutHelperFramework/D20LayoutHelper.h>

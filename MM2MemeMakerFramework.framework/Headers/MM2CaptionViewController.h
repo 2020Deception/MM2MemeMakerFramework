@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MM2AlertContentViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -50,7 +51,7 @@ didFinishWithCaption:(NSString *)caption
 /*!
  MM2CaptionViewController is your one stop shop to making cool memes
  */
-@interface MM2CaptionViewController : UIViewController
+@interface MM2CaptionViewController : UIViewController<UITextFieldDelegate, MM2AlertContentViewControllerDelegate>
 
 // DONT use these
 + (instancetype)new NS_UNAVAILABLE;
@@ -65,6 +66,10 @@ didFinishWithCaption:(NSString *)caption
 // you can override these if you want to subclass MM2CaptionViewController
 - (void)showOptions:(UIGestureRecognizer *)gesture;
 - (void)showPrompt:(UIGestureRecognizer *)gesture;
+
+@property (nonatomic, readonly) UIImage *imageToBeMemed;
+@property (nonatomic, readonly) UIImageView *imageView;
+@property (nonatomic, readonly, weak) id<MM2CaptionViewControllerDelegate> delegate;
 
 /*!
  enable this to disable touch to caption and long press to save, including the delegate callbacks.

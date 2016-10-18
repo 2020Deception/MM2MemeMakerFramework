@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)stickerFromImage:(UIImage *)image completionBlock:(void (^)(MSSticker *sticker, NSError *error))completionBlock;
 
 @property (nonatomic, readonly) NSArray<NSString *> *cacheURLs;
+@property (nonatomic) NSArray<NSString *> *instagramURLs;
 
 @property (nonatomic, readonly) MSSticker *placeholderSticker;
 

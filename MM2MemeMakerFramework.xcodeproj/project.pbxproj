@@ -8,7 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		154F76731D87AB2C0038EF64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA292A1F1D762F5C0029147F /* Assets.xcassets */; };
-		DA22F9091D9D9267000195D5 /* MM2MemeMakerFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA22F9081D9D9267000195D5 /* MM2MemeMakerFramework.framework */; };
+		1564122B1DB6015400D29F5D /* D2LayoutHelperFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156412281DB6015400D29F5D /* D2LayoutHelperFramework.framework */; };
+		1564122D1DB6015400D29F5D /* STPopup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1564122A1DB6015400D29F5D /* STPopup.framework */; };
+		1564122F1DB6017000D29F5D /* D2LayoutHelperFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 156412281DB6015400D29F5D /* D2LayoutHelperFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		156412301DB6017000D29F5D /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156412291DB6015400D29F5D /* SDWebImage.framework */; };
+		156412311DB6017000D29F5D /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 156412291DB6015400D29F5D /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		156412331DB6017000D29F5D /* STPopup.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1564122A1DB6015400D29F5D /* STPopup.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		156412341DB6017300D29F5D /* MM2MemeMakerFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156412261DB600DA00D29F5D /* MM2MemeMakerFramework.framework */; };
+		156412351DB6017300D29F5D /* MM2MemeMakerFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 156412261DB600DA00D29F5D /* MM2MemeMakerFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		156412411DB6042300D29F5D /* MM2MemeMakerFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156412401DB6042300D29F5D /* MM2MemeMakerFramework.framework */; };
+		156412421DB6042300D29F5D /* MM2MemeMakerFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156412401DB6042300D29F5D /* MM2MemeMakerFramework.framework */; };
 		DA2929FD1D761AAB0029147F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2929FC1D761AAB0029147F /* AppDelegate.swift */; };
 		DA2929FF1D761AAB0029147F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2929FE1D761AAB0029147F /* ViewController.swift */; };
 		DA292A021D761AAB0029147F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA292A001D761AAB0029147F /* Main.storyboard */; };
@@ -49,6 +58,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				156412311DB6017000D29F5D /* SDWebImage.framework in Embed Frameworks */,
+				156412351DB6017300D29F5D /* MM2MemeMakerFramework.framework in Embed Frameworks */,
+				1564122F1DB6017000D29F5D /* D2LayoutHelperFramework.framework in Embed Frameworks */,
+				156412331DB6017000D29F5D /* STPopup.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,7 +69,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DA22F9081D9D9267000195D5 /* MM2MemeMakerFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MM2MemeMakerFramework.framework; sourceTree = "<group>"; };
+		156412261DB600DA00D29F5D /* MM2MemeMakerFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MM2MemeMakerFramework.framework; path = /Users/SharriefAlim/xcode/MM2MemeMakerFramework/MM2MemeMakerFramework.framework; sourceTree = "<absolute>"; };
+		156412281DB6015400D29F5D /* D2LayoutHelperFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = D2LayoutHelperFramework.framework; path = /Users/SharriefAlim/xcode/MM2MemeMakerFramework/MM2MemeMakerFramework.framework/Frameworks/D2LayoutHelperFramework.framework; sourceTree = "<absolute>"; };
+		156412291DB6015400D29F5D /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = /Users/SharriefAlim/xcode/MM2MemeMakerFramework/MM2MemeMakerFramework.framework/Frameworks/SDWebImage.framework; sourceTree = "<absolute>"; };
+		1564122A1DB6015400D29F5D /* STPopup.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = STPopup.framework; path = /Users/SharriefAlim/xcode/MM2MemeMakerFramework/MM2MemeMakerFramework.framework/Frameworks/STPopup.framework; sourceTree = "<absolute>"; };
+		156412401DB6042300D29F5D /* MM2MemeMakerFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MM2MemeMakerFramework.framework; sourceTree = "<group>"; };
 		DA2929FA1D761AAB0029147F /* MemeMakerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMakerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA2929FC1D761AAB0029147F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA2929FE1D761AAB0029147F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,7 +96,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA22F9091D9D9267000195D5 /* MM2MemeMakerFramework.framework in Frameworks */,
+				1564122B1DB6015400D29F5D /* D2LayoutHelperFramework.framework in Frameworks */,
+				156412341DB6017300D29F5D /* MM2MemeMakerFramework.framework in Frameworks */,
+				156412411DB6042300D29F5D /* MM2MemeMakerFramework.framework in Frameworks */,
+				1564122D1DB6015400D29F5D /* STPopup.framework in Frameworks */,
+				156412301DB6017000D29F5D /* SDWebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +109,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA292A181D762F5C0029147F /* Messages.framework in Frameworks */,
+				156412421DB6042300D29F5D /* MM2MemeMakerFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,7 +119,7 @@
 		DA2929D11D7615170029147F = {
 			isa = PBXGroup;
 			children = (
-				DA22F9081D9D9267000195D5 /* MM2MemeMakerFramework.framework */,
+				156412401DB6042300D29F5D /* MM2MemeMakerFramework.framework */,
 				DA2929FB1D761AAB0029147F /* MemeMakerDemo */,
 				DA292A191D762F5C0029147F /* MemeMakerMessageDemo */,
 				DA292A161D762F5C0029147F /* Frameworks */,
@@ -329,6 +351,12 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/MM2MemeMakerFramework.framework/Frameworks",
+					"$(PROJECT_DIR)",
+					"$(inherited)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -380,6 +408,12 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/MM2MemeMakerFramework.framework/Frameworks",
+					"$(PROJECT_DIR)",
+					"$(inherited)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -408,6 +442,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/MM2MemeMakerFramework.framework/Frameworks",
 				);
 				INFOPLIST_FILE = MemeMakerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -430,6 +465,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/MM2MemeMakerFramework.framework/Frameworks",
 				);
 				INFOPLIST_FILE = MemeMakerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -447,8 +483,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = B2N86UM9XN;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
+					"$(inherited)/**",
+					"$(PROJECT_DIR)/**",
+					"$(PROJECT_DIR)/MM2MemeMakerFramework.framework/Frameworks",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = MemeMakerMessageDemo/Info.plist;
@@ -469,8 +508,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = B2N86UM9XN;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
+					"$(inherited)/**",
+					"$(PROJECT_DIR)/**",
+					"$(PROJECT_DIR)/MM2MemeMakerFramework.framework/Frameworks",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = MemeMakerMessageDemo/Info.plist;
