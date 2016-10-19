@@ -8,16 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		154F76731D87AB2C0038EF64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA292A1F1D762F5C0029147F /* Assets.xcassets */; };
-		1564122B1DB6015400D29F5D /* D2LayoutHelperFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156412281DB6015400D29F5D /* D2LayoutHelperFramework.framework */; };
-		1564122D1DB6015400D29F5D /* STPopup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1564122A1DB6015400D29F5D /* STPopup.framework */; };
-		1564122F1DB6017000D29F5D /* D2LayoutHelperFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 156412281DB6015400D29F5D /* D2LayoutHelperFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		156412301DB6017000D29F5D /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156412291DB6015400D29F5D /* SDWebImage.framework */; };
-		156412311DB6017000D29F5D /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 156412291DB6015400D29F5D /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		156412331DB6017000D29F5D /* STPopup.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1564122A1DB6015400D29F5D /* STPopup.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		156412341DB6017300D29F5D /* MM2MemeMakerFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156412261DB600DA00D29F5D /* MM2MemeMakerFramework.framework */; };
-		156412351DB6017300D29F5D /* MM2MemeMakerFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 156412261DB600DA00D29F5D /* MM2MemeMakerFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		156412411DB6042300D29F5D /* MM2MemeMakerFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156412401DB6042300D29F5D /* MM2MemeMakerFramework.framework */; };
-		156412421DB6042300D29F5D /* MM2MemeMakerFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156412401DB6042300D29F5D /* MM2MemeMakerFramework.framework */; };
+		155D1B811DB703F9001D4798 /* MM2MemeMakerFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 155D1B801DB703F9001D4798 /* MM2MemeMakerFramework.framework */; };
+		155D1B821DB7040C001D4798 /* MM2MemeMakerFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 155D1B801DB703F9001D4798 /* MM2MemeMakerFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		155D1B851DB70521001D4798 /* impact.otf in Resources */ = {isa = PBXBuildFile; fileRef = 155D1B831DB70521001D4798 /* impact.otf */; };
+		155D1B861DB70521001D4798 /* casual.otf in Resources */ = {isa = PBXBuildFile; fileRef = 155D1B841DB70521001D4798 /* casual.otf */; };
+		155D1B871DB7052E001D4798 /* impact.otf in Resources */ = {isa = PBXBuildFile; fileRef = 155D1B831DB70521001D4798 /* impact.otf */; };
+		155D1B881DB7052E001D4798 /* casual.otf in Resources */ = {isa = PBXBuildFile; fileRef = 155D1B841DB70521001D4798 /* casual.otf */; };
 		DA2929FD1D761AAB0029147F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2929FC1D761AAB0029147F /* AppDelegate.swift */; };
 		DA2929FF1D761AAB0029147F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2929FE1D761AAB0029147F /* ViewController.swift */; };
 		DA292A021D761AAB0029147F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA292A001D761AAB0029147F /* Main.storyboard */; };
@@ -58,10 +54,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				156412311DB6017000D29F5D /* SDWebImage.framework in Embed Frameworks */,
-				156412351DB6017300D29F5D /* MM2MemeMakerFramework.framework in Embed Frameworks */,
-				1564122F1DB6017000D29F5D /* D2LayoutHelperFramework.framework in Embed Frameworks */,
-				156412331DB6017000D29F5D /* STPopup.framework in Embed Frameworks */,
+				155D1B821DB7040C001D4798 /* MM2MemeMakerFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,11 +62,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		156412261DB600DA00D29F5D /* MM2MemeMakerFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MM2MemeMakerFramework.framework; path = /Users/SharriefAlim/xcode/MM2MemeMakerFramework/MM2MemeMakerFramework.framework; sourceTree = "<absolute>"; };
-		156412281DB6015400D29F5D /* D2LayoutHelperFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = D2LayoutHelperFramework.framework; path = /Users/SharriefAlim/xcode/MM2MemeMakerFramework/MM2MemeMakerFramework.framework/Frameworks/D2LayoutHelperFramework.framework; sourceTree = "<absolute>"; };
-		156412291DB6015400D29F5D /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = /Users/SharriefAlim/xcode/MM2MemeMakerFramework/MM2MemeMakerFramework.framework/Frameworks/SDWebImage.framework; sourceTree = "<absolute>"; };
-		1564122A1DB6015400D29F5D /* STPopup.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = STPopup.framework; path = /Users/SharriefAlim/xcode/MM2MemeMakerFramework/MM2MemeMakerFramework.framework/Frameworks/STPopup.framework; sourceTree = "<absolute>"; };
-		156412401DB6042300D29F5D /* MM2MemeMakerFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MM2MemeMakerFramework.framework; sourceTree = "<group>"; };
+		155D1B801DB703F9001D4798 /* MM2MemeMakerFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MM2MemeMakerFramework.framework; sourceTree = "<group>"; };
+		155D1B831DB70521001D4798 /* impact.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = impact.otf; sourceTree = "<group>"; };
+		155D1B841DB70521001D4798 /* casual.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = casual.otf; sourceTree = "<group>"; };
 		DA2929FA1D761AAB0029147F /* MemeMakerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMakerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA2929FC1D761AAB0029147F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA2929FE1D761AAB0029147F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,11 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1564122B1DB6015400D29F5D /* D2LayoutHelperFramework.framework in Frameworks */,
-				156412341DB6017300D29F5D /* MM2MemeMakerFramework.framework in Frameworks */,
-				156412411DB6042300D29F5D /* MM2MemeMakerFramework.framework in Frameworks */,
-				1564122D1DB6015400D29F5D /* STPopup.framework in Frameworks */,
-				156412301DB6017000D29F5D /* SDWebImage.framework in Frameworks */,
+				155D1B811DB703F9001D4798 /* MM2MemeMakerFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,7 +96,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA292A181D762F5C0029147F /* Messages.framework in Frameworks */,
-				156412421DB6042300D29F5D /* MM2MemeMakerFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,7 +105,9 @@
 		DA2929D11D7615170029147F = {
 			isa = PBXGroup;
 			children = (
-				156412401DB6042300D29F5D /* MM2MemeMakerFramework.framework */,
+				155D1B801DB703F9001D4798 /* MM2MemeMakerFramework.framework */,
+				155D1B831DB70521001D4798 /* impact.otf */,
+				155D1B841DB70521001D4798 /* casual.otf */,
 				DA2929FB1D761AAB0029147F /* MemeMakerDemo */,
 				DA292A191D762F5C0029147F /* MemeMakerMessageDemo */,
 				DA292A161D762F5C0029147F /* Frameworks */,
@@ -258,9 +246,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				155D1B851DB70521001D4798 /* impact.otf in Resources */,
 				DA292A071D761AAB0029147F /* LaunchScreen.storyboard in Resources */,
 				DA292A041D761AAB0029147F /* Assets.xcassets in Resources */,
 				DA292A021D761AAB0029147F /* Main.storyboard in Resources */,
+				155D1B861DB70521001D4798 /* casual.otf in Resources */,
 				154F76731D87AB2C0038EF64 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +260,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA292A201D762F5C0029147F /* Assets.xcassets in Resources */,
+				155D1B871DB7052E001D4798 /* impact.otf in Resources */,
+				155D1B881DB7052E001D4798 /* casual.otf in Resources */,
 				DAFE36141D8745D100A14D72 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

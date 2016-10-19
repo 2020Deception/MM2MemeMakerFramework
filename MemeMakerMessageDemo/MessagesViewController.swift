@@ -16,7 +16,8 @@ class MessagesViewController:
     MM2CaptionViewControllerDelegate,
     UICollectionViewDataSource,
     UICollectionViewDelegate,
-    UICollectionViewDelegateFlowLayout {
+    UICollectionViewDelegateFlowLayout,
+UIWebViewDelegate {
     
     /// An enumeration that represents an item in the collection view.
     enum CollectionViewItem {
@@ -27,11 +28,15 @@ class MessagesViewController:
     
     let padding = CGFloat(1)
     
-    var picker: UIImagePickerController!
-    var captioner: MM2CaptionViewController!
+    var selectionViewController = MM2SelectionCollectionViewController(dataSource: nil, delegate: nil)
+    var captioner = MM2CaptionViewController(image: UIImage())
+    var containerController = UIViewController()
+    var picker = UIImagePickerController()
+    
     var currentController: UIViewController!
+    
     var renderedImage: UIImage!
-    var selectionViewController: MM2SelectionCollectionViewController!
+    var authToken: String!
     var imageArray: [CollectionViewItem]!
     
     // MARK: View
@@ -46,57 +51,31 @@ class MessagesViewController:
     }
     
     final private func setViewFrame(for presentationStyle: MSMessagesAppPresentationStyle) {
-        
         if currentController == nil {
             return
-        }
-        
-        if currentController == selectionViewController {
-            
-            currentController.view.frame = view.bounds
-            
         } else if presentationStyle == .expanded {
-            
-            if currentController == picker {
-            
-                if picker.sourceType == .camera {
-                
-                    currentController.view.frame = CGRect(x: view.bounds.origin.x, y: view.bounds.origin.y + 85, width: view.bounds.width, height: view.bounds.height - 120)
-                
-                } else {
-                    
-                    currentController.view.frame = CGRect(x: view.bounds.origin.x, y: view.bounds.origin.y + 85, width: view.bounds.width, height: view.bounds.height - 80)
-                    
-                }
-                
+            if currentController == selectionViewController {
+                currentController.view.frame = CGRect(x: view.bounds.origin.x, y: view.bounds.origin.y, width: view.bounds.width, height: view.bounds.height - 120)
             } else {
-                
-                currentController.view.frame = CGRect(x: view.bounds.origin.x, y: view.bounds.origin.y + 85, width: view.bounds.width, height: view.bounds.height - 80)
-                
-            }
-            
-        } else {
-            
-            if currentController == picker {
-            
-                if picker.sourceType == .camera {
-                
+                if currentController == picker {
+                    if picker.sourceType == .camera {
+                        currentController.view.frame = CGRect(x: view.bounds.origin.x, y: view.bounds.origin.y + 85, width: view.bounds.width, height: view.bounds.height - 120)
+                    } else {
+                        currentController.view.frame = CGRect(x: view.bounds.origin.x, y: view.bounds.origin.y + 85, width: view.bounds.width, height: view.bounds.height - 80)
+                    }
+                } else if currentController.isKind(of: UINavigationController.self) {
+                    currentController.view.frame = CGRect(x: view.bounds.origin.x, y: view.bounds.origin.y + 85, width: view.bounds.width, height: view.bounds.height - 40)
+                } else {
                     currentController.view.frame = CGRect(x: view.bounds.origin.x, y: view.bounds.origin.y, width: view.bounds.width, height: view.bounds.height - 40)
-                    
-                } else {
-                    
-                    currentController.view.frame = view.bounds
-                    
                 }
-                
-            } else {
-                
-                currentController.view.frame = CGRect(x: view.bounds.origin.x, y: view.bounds.origin.y, width: view.bounds.width, height: view.bounds.height - 50)
-                
             }
-            
+        } else {
+            if currentController == selectionViewController {
+                currentController.view.frame = view.bounds
+            } else {
+                currentController.view.frame = CGRect(x: view.bounds.origin.x, y: view.bounds.origin.y, width: view.bounds.width, height: view.bounds.height - 40)
+            }
         }
-        
     }
     
     final private func populateImageArray() {
@@ -131,12 +110,10 @@ class MessagesViewController:
         populateImageArray()
         selectionViewController = MM2SelectionCollectionViewController(dataSource: self, delegate: self)
         selectionViewController.collectionView?.register(MM2SelectionCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        selectionViewController.collectionView?.register(MM2HeaderCollectionReusableView.self,
-                                                         forSupplementaryViewOfKind:UICollectionElementKindSectionHeader, withReuseIdentifier:"header")
         selectionViewController.collectionView?.backgroundColor = UIColor.white
         presentViewController(controller: selectionViewController, with: presentationStyle)
     }
-
+    
     @IBAction func showPicker(type: Int) {
         picker = UIImagePickerController()
         picker.sourceType = type == 0 ? .photoLibrary : .camera
@@ -207,28 +184,62 @@ class MessagesViewController:
     final private func insert() {
         requestPresentationStyle(.compact)
         MM2Cache().sticker(from: renderedImage, completionBlock: { (sticker, error) in
-            if error != nil {
-                print("sticker errror \(error)")
-            } else {
-                self.imageArray.insert(.sticker(sticker!), at: self.imageArray.count)
-                let imageURL = sticker?.imageFileURL
-                self.activeConversation?.insertAttachment(imageURL!, withAlternateFilename: "meme", completionHandler: { (error) in
-                    print("insert errror \(error)")
-                })
-            }
+            self.imageArray.insert(.sticker(sticker), at: self.imageArray.count)
+            let imageURL = sticker.imageFileURL
+            self.activeConversation?.insertAttachment(imageURL, withAlternateFilename: "meme", completionHandler: { (error) in
+                print("insert errror \(error)")
+                self.dismiss()
+            })
         })
     }
-
+    
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        print(webView.request?.url, "start")
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        if (webView.request?.url?.absoluteString.contains("access_token"))! {
+            authToken = webView.request?.url?.absoluteString.components(separatedBy: "#").last?.components(separatedBy: "=").last
+            if authToken == nil {
+                return
+            }
+            print(webView.request?.url, "--- TOKEN ---", authToken)
+            MM2Helper.storeAuthToken(authToken)
+        } else if MM2Helper.authToken() != nil {
+            authToken = MM2Helper.authToken()
+        } else {
+            print("where is my token", webView.request?.url?.absoluteString)
+            return
+        }
+    }
+    
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        print(webView.request?.url, error)
+    }
+    
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        print(request.url)
+        return true
+    }
+    
     // MARK: Collection View Delegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch imageArray[indexPath.row] {
-        case .sticker(let sticker):
-            self.activeConversation?.insert(sticker, completionHandler: { (error) in
-                print("insert errror \(error)")
-            })
-        default:
-            self.showPicker(type: indexPath.row)
+        if collectionView == selectionViewController.collectionView {
+            switch imageArray[indexPath.row] {
+            case .sticker(let sticker):
+                self.activeConversation?.insert(sticker, completionHandler: { (error) in
+                    print("insert errror \(error)")
+                })
+            default:
+                self.showPicker(type: indexPath.row)
+            }
+        } else {
+            let img = (collectionView.cellForItem(at: indexPath) as? MM2SelectionCollectionViewCell)?.imageView.image
+            dismiss(animated: true, completion: nil)
+            captioner = MM2CaptionViewController(image: img!, delegate: self)
+            let nav = UINavigationController(rootViewController: captioner)
+            presentViewController(controller: nav, with: .expanded)
         }
     }
     
@@ -239,41 +250,30 @@ class MessagesViewController:
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageArray.count
+        return collectionView == selectionViewController.collectionView ? imageArray.count : MM2Cache.shared().instagramURLs.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? MM2SelectionCollectionViewCell
             else { fatalError("Unable to MM2SelectionCollectionViewCell") }
-        switch imageArray[indexPath.row] {
-        case .camera:
-            let imageView = UIImageView(image: UIImage(named: "camera"))
-            imageView.contentMode = .scaleAspectFit
-            imageView.isUserInteractionEnabled = true
-            MM2Helper.widthHeightEquivalentsConstraints(withSuperView: cell, subview: imageView)
-        case .library:
-            let imageView = UIImageView(image: UIImage(named: "library"))
-            imageView.contentMode = .scaleAspectFit
-            imageView.isUserInteractionEnabled = true
-            MM2Helper.widthHeightEquivalentsConstraints(withSuperView: cell, subview: imageView)
-        case .sticker(let sticker):
-            let stickerView = MSStickerView()
-            stickerView.sticker = sticker
-            MM2Helper.widthHeightEquivalentsConstraints(withSuperView: cell, subview: stickerView)
-            cell.backgroundColor = MM2Helper.defaultBackgroundColor()
+        if collectionView == selectionViewController.collectionView {
+            switch imageArray[indexPath.row] {
+            case .camera:
+                cell.setImage(UIImage(named: "camera")!)
+            case .library:
+                cell.setImage(UIImage(named: "library")!)
+            case .sticker(let sticker):
+                let stickerView = MSStickerView()
+                stickerView.sticker = sticker
+                D20LayoutHelper.widthHeightEquivalentsConstraints(withSuperView: cell, subview: stickerView)
+                cell.backgroundColor = MM2Helper.defaultBackgroundColor()
+            }
+        } else {
+            let imageView = UIImageView()
+            imageView.sd_setImage(with: URL(string:MM2Cache.shared().instagramURLs[indexPath.row]), placeholderImage: UIImage(named: "memer"))
+            cell.setImageView(imageView)
         }
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        var reusableView : MM2HeaderCollectionReusableView? = nil
-        if kind == UICollectionElementKindSectionHeader {
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                             withReuseIdentifier: "header",
-                                                                             for: indexPath) as! MM2HeaderCollectionReusableView
-            reusableView = headerView
-        }
-        return reusableView!
     }
     
     // MARK: Collection View Layout
@@ -285,5 +285,3 @@ class MessagesViewController:
     }
     
 }
-
-
