@@ -128,7 +128,7 @@ UIWebViewDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let img = info[UIImagePickerControllerOriginalImage] as! UIImage
         dismiss(animated: true, completion: nil)
-        captioner = MM2CaptionViewController(image: img, delegate: self)
+        captioner = MM2CaptionViewController(image: img, delegate: self, overlay: true)
         let nav = UINavigationController(rootViewController: captioner)
         presentViewController(controller: nav, with: .expanded)
     }
@@ -238,7 +238,7 @@ UIWebViewDelegate {
         } else {
             let img = (collectionView.cellForItem(at: indexPath) as? MM2SelectionCollectionViewCell)?.imageView.image
             dismiss(animated: true, completion: nil)
-            captioner = MM2CaptionViewController(image: img!, delegate: self)
+            captioner = MM2CaptionViewController(image: img!, delegate: self, overlay: true)
             let nav = UINavigationController(rootViewController: captioner)
             presentViewController(controller: nav, with: .expanded)
         }

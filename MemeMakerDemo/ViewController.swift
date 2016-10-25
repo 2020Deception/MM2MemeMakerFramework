@@ -43,7 +43,7 @@ class ViewController:
                                didFinishPickingMediaWithInfo info: [String : Any]) {
         let img = info[UIImagePickerControllerOriginalImage] as! UIImage
         dismiss(animated: true, completion: nil)
-        captioner = MM2CaptionViewController(image: img, delegate: self)
+        captioner = MM2CaptionViewController(image: img, delegate: self, overlay: true)
         navController = UINavigationController(rootViewController: captioner)
         present(navController, animated: true, completion: nil)
     }
