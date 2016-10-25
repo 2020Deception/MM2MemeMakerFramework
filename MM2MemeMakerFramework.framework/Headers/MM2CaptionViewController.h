@@ -12,6 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class MM2CaptionViewController;
+@class MM2Label;
 
 @protocol MM2CaptionViewControllerDelegate <NSObject>
 
@@ -61,7 +62,11 @@ didFinishWithCaption:(NSString *)caption
 
 // USE these
 - (instancetype)initWithImage:(UIImage *)image NS_DESIGNATED_INITIALIZER;
-- (instancetype)initWithImage:(UIImage *)image delegate:(id<MM2CaptionViewControllerDelegate>)delegate NS_DESIGNATED_INITIALIZER;
+
+/**
+ @param overlay if enabled the captions will be overlayed on the image, otherwise the caption will appear above or below the image.
+ */
+- (instancetype)initWithImage:(UIImage *)image delegate:(id<MM2CaptionViewControllerDelegate>)delegate overlay:(BOOL)overlay NS_DESIGNATED_INITIALIZER;
 
 // you can override these if you want to subclass MM2CaptionViewController
 - (void)showOptions:(UIGestureRecognizer *)gesture;
@@ -69,6 +74,11 @@ didFinishWithCaption:(NSString *)caption
 
 @property (nonatomic, readonly) UIImage *imageToBeMemed;
 @property (nonatomic, readonly) UIImageView *imageView;
+/**the stackView for non-overlayed memes*/
+@property (nonatomic, readonly) UIStackView *stackView;
+/** default label for placement above the image */
+@property (nonatomic, readonly) MM2Label *label;
+@property (nonatomic, readonly) BOOL overlay;
 @property (nonatomic, readonly, weak) id<MM2CaptionViewControllerDelegate> delegate;
 
 /*!
